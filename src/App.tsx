@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Button } from './Button';
 
-function App() {
+const App: React.FC = () => {
+
+  const buttonColors: string[] = ["red", "yellow", "green", "blue"];
+
+  const [level, setLvl] = useState<number>(1);
+  const [plrsTurn, setPlrsTurn] = useState<boolean>(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {buttonColors.map((val: string, i : number) => {
+        return <Button color={val} key={i}/>
+      })}
     </div>
   );
 }
